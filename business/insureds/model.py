@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 """
 Clase de Pydantic que define el modelo correspondiente a un json como el siguiente:
@@ -35,15 +35,15 @@ Clase de Pydantic que define el modelo correspondiente a un json como el siguien
 
 """
 class Region(BaseModel):
-    id: int
+    id: int = Field(..., alias="_id")
     name: str
 
 class City(BaseModel):
-    id: int
+    id: int = Field(..., alias="_id")
     name: str
 
 class District(BaseModel):
-    id: int
+    id: int = Field(..., alias="_id")
     name: str
 
 class Address(BaseModel):
@@ -59,7 +59,7 @@ class ContactData(BaseModel):
     email: str
 
 class Insured(BaseModel):
-    identifier: int
+    identifier: str
     name: str
     lastname: str
     mothers_lastname: str

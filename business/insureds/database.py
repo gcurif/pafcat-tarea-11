@@ -1,21 +1,23 @@
 from common.db_conn import database
-from .model import CarModel
+from .model import Insured
 
 """
 Clase que se encarga de manejar la conexión con la base de datos y realizar las consultas necesarias
-en particular para la colección de car_model
+en particular para la colección de insuredes
 """
 
-# Se llama a la collection de car_model de base datos
-collection = database['car_model']
+# Se llama a la collection de insuredes de base datos
+collection = database['insured']
 
-class CarModelsDatabase:
+class InsuredDatabase:
 
     @staticmethod
-    def get_car_models():
+    def get_insureds():
         db_query_result = collection.find({})
         dict_items = list(db_query_result)
 
-        # Se transforma el diccionario en un Objeto CarModel
-        return [CarModel(id=item["_id"], company=item["company"], brand_id=item["brand_id"], model_id=item["model_id"], name=item["name"]  ) for item in dict_items]
+        for item in dict_items:
+            item["identifier"] = str(item["identifier"])
 
+        # Se transforma el diccionario en un Objeto CarModel
+        return [Insured( **item) for item in dict_items]
