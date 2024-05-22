@@ -1,23 +1,29 @@
-# import clases de mongo engine 
-from mongoengine import Document, EmbeddedDocument, StringField, IntField, EmbeddedDocumentField, DateTimeField
-from datetime import datetime
+from pydantic import BaseModel
 
 """
-Clase de mongoengine que define el modelo correspondiente a un json como el siguiente:
+Clase de Pydantic que define el modelo correspondiente a un json como el siguiente:
 {
-    "licenseplate": "fcrt78",
-    "brand": "toyota"
-    "model": "rav4"
+    "license_plate": "fcrt78",
+	"brand" : {
+		"id" : 62,
+		"name" : "TOYOTA"
+	},
+	"model" : {
+		"id" : 103,
+		"name" : "COROLLA                                 "
+	}
 }
+Instanciar con Car(license_plate="fcrt78", brand="toyota", model="rav4")
 """
-class Car(Document):
-    license_plate = StringField()
-    brand = StringField()
-    model = StringField()
+class CarBrand(BaseModel):
+    id: int
+    name: str
 
-    @staticmethod
-    def from_json(json):
-        return Car(license_plate=json['licenseplate'], brand=json['brand'], model=json['model'])
-    
-    def __str__(self):
-        return f"Car(license_plate={self.license_plate}, brand={self.brand}, model={self.model})"
+class CarModel(BaseModel):
+    id: int
+    name: str
+
+class Car(BaseModel):
+    license_plate: str
+    brand: CarBrand
+    model: CarModel
