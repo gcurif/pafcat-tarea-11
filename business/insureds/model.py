@@ -68,3 +68,7 @@ class Insured(BaseModel):
     sperson: str
     contact_data: ContactData
     address: Address
+    full_name = mothers_lastname + lastname + lastname2
+
+
+    
