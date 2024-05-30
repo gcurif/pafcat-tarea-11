@@ -50,7 +50,7 @@ class Address(BaseModel):
     region: Region
     city: City
     district: District
-    streetnumber: str
+    streetnumber: int
     street: str
 
 class ContactData(BaseModel):
@@ -68,7 +68,7 @@ class Insured(BaseModel):
     sperson: str
     contact_data: ContactData
     address: Address
-    full_name = mothers_lastname + lastname + lastname2
+    full_name: str
 
 
     

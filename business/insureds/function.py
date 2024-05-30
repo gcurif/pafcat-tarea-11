@@ -14,6 +14,20 @@ def get_insureds():
 
         insured.name = fixed_name_insured
 
+        #______________________________________________________________
+
+        fixed_full_name = insured.full_name
+
+        fixed_full_name = insured.lastname + insured.lastname2 + insured.mothers_lastname 
+
+        fixed_full_name = fixed_full_name.capitalize()
+
+        fixed_full_name = fixed_full_name.replace('ï¿½', 'ñ')
+
+        fixed_full_name = fixed_full_name.strip()
+
+        insured.full_name = fixed_full_name
+
     return insureds
 
     
