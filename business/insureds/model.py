@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-
+from typing import Optional
 """
 Clase de Pydantic que define el modelo correspondiente a un json como el siguiente:
 {
@@ -50,7 +50,7 @@ class Address(BaseModel):
     region: Region
     city: City
     district: District
-    streetnumber: int
+    streetnumber: Optional[int] = None  
     street: str
 
 class ContactData(BaseModel):
@@ -68,7 +68,7 @@ class Insured(BaseModel):
     sperson: str
     contact_data: ContactData
     address: Address
-    full_name: str
+    full_name: None
 
 
     

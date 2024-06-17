@@ -43,9 +43,8 @@ def get_policies():
 
         
         
-        actual_date = datetime.utcnow()
 
-
+        actual_date = datetime.now()
         
         if  claim.end_date < actual_date:
             claim.status = 1

@@ -1,5 +1,9 @@
 from pymongo import MongoClient
 
-# Connect to the MongoDB database
-client = MongoClient('mongodb://mongo:ijqsJiTujRpsFlBGwiPFjfhrAmlAEmce@monorail.proxy.rlwy.net:46930')
+# Conectar a la base de datos MongoDB con un timeout aumentado
+client = MongoClient(
+    'mongodb://mongo:PXHKuTyUmPTGYnXcuTQeDbmiKKxXERux@monorail.proxy.rlwy.net:34963',
+    socketTimeoutMS=180000  # 60 segundos
+)
 database = client['pafcat-seguros']
+

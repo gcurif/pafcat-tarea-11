@@ -8,3 +8,4 @@ router = APIRouter()
 @router.get("/policies", response_model=List[Policy])
 async def get():
     return get_policies()
+
