@@ -1,7 +1,6 @@
 from datetime import datetime
 from pydantic import BaseModel, Field, field_validator
 
-
 """
 Clase de Pydantic que define el modelo correspondiente a un json como el siguiente:
 
