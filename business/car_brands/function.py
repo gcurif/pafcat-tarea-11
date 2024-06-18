@@ -2,10 +2,6 @@ from .database import CarBrandsDatabase
 
 def get_car_brands():
 
-    """
-    Lo que se recibe de la base de datos es una lista de vehículos,
-    vale decir una lista de objetos CarBrands
-    """
     car_brands = CarBrandsDatabase.get_car_brands()
 
     """
@@ -32,10 +28,12 @@ def get_car_brands():
         # se capitaliza el nombre
         fixed_name = fixed_name.capitalize()
 
-        # se guarda el nombre corregido en el objeto car_brand
+        # se cambian las ï¿½ por ñ
+
+        fixed_name = fixed_name.replace('ï¿½', 'ñ')
+
+        # se guarda el nombre corregido en el objeto car_brandddd
         car_brand.name = fixed_name
 
-
-        car_brand.name = car_brand.name.capitalize()
-
     return car_brands
+

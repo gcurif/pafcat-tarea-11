@@ -1,7 +1,6 @@
 from datetime import datetime
 from pydantic import BaseModel, Field, field_validator
 
-
 """
 Clase de Pydantic que define el modelo correspondiente a un json como el siguiente:
 
@@ -81,13 +80,15 @@ class Policy(BaseModel):
     insured: PolicyInsured = Field(..., alias="insured")
     office: Office = Field(..., alias="office")
     car: PolicyCar = Field(..., alias="car")
-    status: str = Field(..., alias="status")
+    policy_holder_full_name: str = Field(..., alias="policy_holder_full_name")
+    status: int = Field(..., alias="status")
     start_date: datetime = Field(..., alias="start_date")
     end_date: datetime = Field(..., alias="end_date")
     risk_number: str = Field(..., alias="risk_number")
     product_number: str = Field(..., alias="product_number")
     policy_holder: PolicyHolder = Field(..., alias="policy_holder")
     policy_holder_person_sequence: str = Field(..., alias="policy_holder_person_sequence")
-
+	
+	
     class config:
         extra = "allow"

@@ -14,7 +14,7 @@ Instanciar con Claim(incident_date=datetime.strptime("26.09.2018 01:00:00", "%d.
 """
 class Claim(BaseModel):
      incident_date: datetime
-     item: str
-     claim_number: str
-     policy_number: str
+     item: int
+     claim_number: int
+     policy_number: int
      
